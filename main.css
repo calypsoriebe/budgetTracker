@@ -35,3 +35,24 @@
 .input:focus {
     border-color: cornflowerblue;
 }
+
+.deleteEntry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    background: none;
+    color: red;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.deleteEntry:hover{
+    background: rgba(255,0,0,0.1);
+}
+
+.controls, .summary{
+    text-align: right;
+}
