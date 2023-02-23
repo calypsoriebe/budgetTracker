@@ -13,7 +13,7 @@ export default class BudgetTracker {
   //return table html
   static html() {
     return `
-        <table class="budgetTracker">
+        <table class="budgetTrackerTable">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -68,17 +68,31 @@ export default class BudgetTracker {
     `;
   }
   //initial load data
-  load() {}
+  load() {
+    const allEntries = JSON.parse(
+      localStorage.getItem("budgetTrackerEntries") || "[]"
+    );
+    for (const entry of allEntries) {
+      this.addEntry(entry);
+    }
+    this.updateSumm();
+  }
   //will work out total of table
   updateSumm() {}
   //saves to storage for when refreshing page
   save() {}
   //for adding new entry
-  addEntry(entry = {}) {}
+  addEntry(entry = {}) {
+    this.root
+      .querySelector(".entries")
+      .insertAdjacentHTML("beforeend", BudgetTracker.entryHtml());
+  }
   //get helper to return all active entries in table
   getEntries() {}
   //button for making new entry
-  newEntryBtn() {}
+  newEntryBtn() {
+    this.addEntry;
+  }
   //for deleting entry
   deleteEntryBtn() {}
 }
